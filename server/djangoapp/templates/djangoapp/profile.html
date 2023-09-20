@@ -1,0 +1,13 @@
+{% extends "base/base.html" %}
+{% block title %} Profile {% endblock %}
+
+{% block template %}
+<BR><BR><BR><BR>
+    
+{% if user.is_authenticated %}
+<p>Username: {{user.username}}, First name: {{user.first_name}}, Last name: {{user.last_name}} </p>
+{% endif %}
+
+<BR><BR><BR><BR><BR><BR>
+   
+{% endblock %}
