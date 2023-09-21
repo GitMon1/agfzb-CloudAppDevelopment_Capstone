@@ -75,10 +75,12 @@
         </div>
     </nav>
     <!--Add a dealer table here -->
+        <div class="col border d-flex align-items-center justify-content-center">
+            {% block template %}
 
-    {% block template %}
-
-    {% endblock %}
+            {% endblock %}
+        </div>
+      
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>

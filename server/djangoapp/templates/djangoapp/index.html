@@ -2,7 +2,17 @@
 {% block title %} Welcome to Charmoni Cars {% endblock %}
 
 {% block template %}
-<BR><BR><BR><BR><BR><BR><BR><BR><BR><BR>
-    index
-    show user name if authenticated
+<BR><BR><BR><BR><BR>
+    {% if user.is_authenticated %}
+    <h1>Welcome {{ user.username }}</h1>
+
+
+    {% else %} 
+
+    <a href="{% url 'djangoapp:registration' %}">Signup</a>  
+    {% endif %}   
+    
+    
+<BR><BR><BR><BR><BR>
+  
 {% endblock %}
