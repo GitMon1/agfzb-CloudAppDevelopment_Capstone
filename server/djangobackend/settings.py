@@ -29,9 +29,9 @@ APPEND_SLASH = True
 
 ALLOWED_HOSTS = ["localhost"]
 
+LOGOUT_REDIRECT_URL = "djangoapp:index"
 
-# Application definition
-
+# Application definitioml
 INSTALLED_APPS = [
     'djangoapp.apps.DjangoappConfig',
     'django.contrib.admin',

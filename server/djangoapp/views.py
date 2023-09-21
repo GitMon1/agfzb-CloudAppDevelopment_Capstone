@@ -52,14 +52,9 @@ def login_request(request):
     else:
         return render(request, 'djangoapp/login.html', context)
 
-# Create a `logout_request` view to handle sign out request
-def logout_request(request):
-    # Get the user object based on session id in request
-    print("Log out the user `{}`".format(request.user.username))
-    # Logout user in the request
+def logoutUser(request):
     logout(request)
-    # Redirect user back to course list view
-    return redirect('djangoapp:index')
+    return redirect('djangoapp/logout.html')
 
 # Create a `registration_request` view to handle sign up request
 def registration_request(request):
@@ -76,7 +71,7 @@ def all_dealers(request):
     return render(request, 'djangoapp/all_dealers.html')
 
 # Create a `profile` view to return a static profile page
-def all_review(request):
+def add_review(request):
     return render(request, 'djangoapp/add_review.html')
 
 # Create a `get_dealer_details` view to render the reviews of a dealer

@@ -4,13 +4,11 @@ from django.conf import settings
 from . import views
 from django.shortcuts import render
 from django.urls import reverse
+from django.contrib.auth.views import LogoutView
+
 
 app_name = 'djangoapp'
 urlpatterns = [
-    # route is a string contains a URL pattern
-    # view refers to the view function
-    # name the URL
-
     # path for about view
     path('about/', views.about, name='about'),
 
@@ -27,16 +25,17 @@ urlpatterns = [
     path('login/', views.login_request, name='login'),
 
     # path for logout
-    path('logout/', views.logout_request, name='logout'),
+    path('logout/', LogoutView.as_view(next_page=settings.LOGOUT_REDIRECT_URL), name='logout'),
 
     # path for all_dealers
-    path('all_dealers/', views.logout_request, name='all_dealers'),
+    path('all_dealers/', views.all_dealers, name='all_dealers'),
 
-    path(route='', view=views.get_dealerships, name='index'),
+    # path for add a review view
+    path('add_review/', views.add_review, name='add_review'),
 
     # path for dealer reviews view
 
-    # path for add a review view
-    path('add_review/', views.logout_request, name='add_review'),
+    path(route='', view=views.get_dealerships, name='index'),
+
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
