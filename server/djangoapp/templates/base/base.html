@@ -17,7 +17,7 @@
     <!--Add a nav bar here -->
     <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Charmoni's Car Dealership</a>
+            <a class="navbar-brand" href="#">Charmoni's Cars</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01"
                 aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -30,13 +30,17 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
+                        <a class="nav-link" href="{% url 'djangoapp:about' %}">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</a>
+                        <a class="nav-link" href="{% url 'djangoapp:contact' %}">Contact</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                            aria-haspopup="true" aria-expanded="false">Dealers</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="{% url 'djangoapp:all_dealers' %}">All Dealers</a>
+                            <a class="dropdown-item" href="{% url 'djangoapp:add_review' %}">Add Review</a>
                     </li>
 
                     {% if user.is_authenticated %}
@@ -44,8 +48,9 @@
                         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
                             aria-haspopup="true" aria-expanded="false">My Account</a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">My Profile</a>
-                            <a class="dropdown-item" href="#">Log Out</a>
+                            <a class="dropdown-item" href="{% url 'djangoapp:profile' %}">My Profile</a>
+                            <a class="dropdown-item" href="{% url 'djangoapp:add_review' %}">Add A Review</a>
+                            <a class="dropdown-item" href="{% url 'djangoapp:logout' %}">Log Out</a>
                             
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Separated link</a>

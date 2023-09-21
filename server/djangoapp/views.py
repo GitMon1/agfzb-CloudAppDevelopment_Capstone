@@ -21,7 +21,6 @@ logger = logging.getLogger(__name__)
 
 
 # Create an `about` view to render a static about page
-# def about(request):
 def about(request):
     return render(request, 'djangoapp/about.html')
 
@@ -46,7 +45,7 @@ def login_request(request):
         if user is not None:
             # If user is valid, call login method to login current user
             login(request, user)
-            return redirect('djangoapp:index.html')
+            return HttpResponseRedirect(reverse(viewname='djangoapp:index'))
         else:
             # If not, return to login page again
             return render(request, 'djangoapp/login.html', context)
@@ -72,6 +71,13 @@ def get_dealerships(request):
     if request.method == "GET":
         return render(request, 'djangoapp/index.html', context)
 
+# Create a `profile` view to return a static profile page
+def all_dealers(request):
+    return render(request, 'djangoapp/all_dealers.html')
+
+# Create a `profile` view to return a static profile page
+def all_review(request):
+    return render(request, 'djangoapp/add_review.html')
 
 # Create a `get_dealer_details` view to render the reviews of a dealer
 # def get_dealer_details(request, dealer_id):

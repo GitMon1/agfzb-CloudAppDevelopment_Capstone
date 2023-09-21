@@ -29,11 +29,14 @@ urlpatterns = [
     # path for logout
     path('logout/', views.logout_request, name='logout'),
 
+    # path for all_dealers
+    path('all_dealers/', views.logout_request, name='all_dealers'),
 
     path(route='', view=views.get_dealerships, name='index'),
 
     # path for dealer reviews view
 
     # path for add a review view
+    path('add_review/', views.logout_request, name='add_review'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
