@@ -29,9 +29,8 @@ APPEND_SLASH = True
 
 ALLOWED_HOSTS = ["localhost"]
 
-LOGOUT_REDIRECT_URL = "djangoapp:index"
+# Application definition
 
-# Application definitioml
 INSTALLED_APPS = [
     'djangoapp.apps.DjangoappConfig',
     'django.contrib.admin',
@@ -125,3 +124,6 @@ STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_ROOT = os.path.join(STATIC_ROOT, 'media')
 MEDIA_URL = '/media/'
+
+
+LOGIN_REDIRECT_URL = "/"
