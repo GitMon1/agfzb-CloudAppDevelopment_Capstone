@@ -49,7 +49,6 @@
                             aria-haspopup="true" aria-expanded="false">My Account</a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="{% url 'djangoapp:profile' %}">My Profile</a>
-                            <a class="dropdown-item" href="{% url 'djangoapp:add_review' %}">Add A Review</a>
                             <a class="dropdown-item" href="{% url 'djangoapp:logout' %}">Log Out</a>
                             
                             <div class="dropdown-divider"></div>
@@ -59,17 +58,12 @@
                 </ul>
 
                     {% else %}
-                    <form action="{% url 'djangoapp:login' %}"  method="post">
-                        {% csrf_token %}
-                        <li><div class="container">
-                          <label for="username"><b>User Name</b></label>
-                          <input type="text" placeholder="Enter User Name: " name="username" required>
-                          <label for="psw"><b>Password</b></label>
-                          <input type="password" placeholder="Enter Password: " name="psw" required>
-                            <button class="button" type="submit">Login</button>
-                          </div>
-                        </div>
-                      </form> 
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'djangoapp:login' %}">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'djangoapp:registration' %}">Sign Up</a>
+                    </li>
                     {% endif %}
             </div>
         </div>
